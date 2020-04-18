@@ -1,0 +1,25 @@
+//{
+//  "ConnectionStrings": {
+//    "DefaultConnection": "Server=.\\MSSQLSERVER;Database=LocaVeiculos;Trusted_Connection=True;MultipleActiveResultSets=true"
+//  },
+//  "Logging": {
+//    "LogLevel": {
+//      "Default": "Warning"
+//    }
+//  },
+//  "AllowedHosts": "*"
+//}
+
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Data Source =.\\MSSQLSERVER; Initial Catalog = LocaVeiculos; Integrated Security = SSPI;"
+  },
+  "Logging": {
+    "IncludeScopes": false,
+    "LogLevel": {
+      "Default": "Debug",
+      "System": "Information",
+      "Microsoft": "Information"
+    }
+  }
+}

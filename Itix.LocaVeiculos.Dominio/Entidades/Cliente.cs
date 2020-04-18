@@ -6,13 +6,11 @@ namespace Itix.LocaVeiculos.Dominio.Entidades
 {
     public class Cliente : BaseEntity
     {
+        public string Nome { get; set; }
+        public string Sobrenome { get; set; }
         public string Endereco { get; set; }
+        public string CPF { get; set; }
         public string Telefone { get; set; }
-
-        public int PessoaFisicaId { get; set; }
-        public PessoaFisica PessoaFisica { get; set; }
-
-        public int PessoaJuridicaId { get; set; }
-        public PessoaJuridica PessoaJuridica { get; set; }
+        public DateTime DtNascimento { get; set; }
     }
 }
