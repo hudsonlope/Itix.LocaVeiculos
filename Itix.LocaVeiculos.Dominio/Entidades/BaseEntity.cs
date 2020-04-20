@@ -7,7 +7,7 @@ namespace Itix.LocaVeiculos.Dominio.Entidades
     public abstract class BaseEntity
     {
         [Key]
-        [Display(Name = "Id")]
+        //[Display(Name = "Id")]
         public int Id { get; set; }
 
         //public List<string> _mensagemValidacao { get; set; }

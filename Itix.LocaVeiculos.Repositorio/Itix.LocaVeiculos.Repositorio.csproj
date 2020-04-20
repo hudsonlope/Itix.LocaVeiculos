@@ -6,7 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.35" />
+    <PackageReference Include="Dapper.Contrib" Version="2.0.35" />
+    <PackageReference Include="Dapper.FluentMap" Version="1.8.0" />
+    <PackageReference Include="Dapper.FluentMap.Dommel" Version="1.7.0" />
+    <PackageReference Include="Dommel" Version="1.11.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="SlapperAutomapper.Core" Version="1.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
   </ItemGroup>
 

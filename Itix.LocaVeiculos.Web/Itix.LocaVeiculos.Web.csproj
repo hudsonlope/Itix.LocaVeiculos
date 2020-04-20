@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,8 +27,30 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\categoria\categoria.component.ts" />
+    <None Remove="ClientApp\src\app\model\usuario.ts" />
+    <None Remove="ClientApp\src\app\usuario\login\login.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Itix.LocaVeiculos.Dominio\Itix.LocaVeiculos.Dominio.csproj" />
     <ProjectReference Include="..\Itix.LocaVeiculos.Repositorio\Itix.LocaVeiculos.Repositorio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\categoria\categoria.component.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\model\usuario.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\usuario\login\login.component.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\app\usuario\cadastro\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

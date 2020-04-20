@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Linq;
 
 namespace Itix.LocaVeiculos.Dominio.Entidades
 {
+    [Table("CarroLocado")]
     public class CarroLocado : BaseEntity
     {
         public int QtdDiasLocado { get; set; }

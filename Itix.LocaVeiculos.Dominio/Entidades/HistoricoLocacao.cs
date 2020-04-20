@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 
 namespace Itix.LocaVeiculos.Dominio.Entidades
 {
+    [Table("HistoricoLocacao")]
     public class HistoricoLocacao : BaseEntity
     {
         public int QtdDiasLocados { get; set; }

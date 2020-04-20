@@ -1,5 +1,8 @@
-﻿namespace Itix.LocaVeiculos.Dominio.Entidades
+﻿using Dapper.Contrib.Extensions;
+
+namespace Itix.LocaVeiculos.Dominio.Entidades
 {
+    [Table("Usuario")]
     public class Usuario : BaseEntity
     {
         public string Email { get; set; }

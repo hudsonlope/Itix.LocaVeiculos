@@ -1,10 +1,14 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 
 namespace Itix.LocaVeiculos.Dominio.Entidades
 {
-    public class Carro : BaseEntity
+    [Table("Carro")]
+    public class Carro
     {
+        [Key]
+        public int Carro_Id { get; set; }
         public bool Ativo { get; set; }
         public string Marca { get; set; }
         public string Modelo { get; set; }
@@ -13,8 +17,7 @@ namespace Itix.LocaVeiculos.Dominio.Entidades
         public string Chassi { get; set; }
         public DateTime DtCadastro { get; set; }
 
-        public ICollection<int> CategoriaId { get; set; }
-        public ICollection<Categoria> Categoria { get; set; }
-
+        public virtual Categoria Categoria { get; set; }
+        public int Categoria_Id { get; set; }
     }
 }

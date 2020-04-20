@@ -1,0 +1,62 @@
+<!-- Tela Login 1 -->
+<div class="text-center">
+  <form class="form-signin">
+    <h1 class="h4 mb-2 login">Login do Cliente</h1>
+    <label for="email" class="sr-only">Email</label>
+    <input type="email"
+           id="email"
+           name="email"
+           placeholder="Informe seu E-mail"
+           class="form-control mb-2"
+           [(ngModel)]="usuario.email"
+           #email="ngModel"
+           [ngClass]="{
+           'is-invalid':email.invalid && (email.dirty || email.touched),
+           'is-valid':email.valid && (email.dirty || email.touched)
+           }"
+           email
+           required />
+    <div class="invalid-feedback mb-2" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors.required">
+        E-mail é de preenchimento obrigatório!
+      </div>
+      <div *ngIf="email.errors.email">
+        E-mail invalido!
+      </div>
+    </div>
+
+    <label for="senha" class="sr-only">Senha</label>
+    <input type="password"
+           id="senha"
+           name="senha"
+           placeholder="Senha"
+           class="form-control mb-2"
+           [(ngModel)]="usuario.senha"
+           #senha="ngModel"
+           [ngClass]="{
+           'is-invalid':senha.invalid && (senha.dirty || senha.touched),
+           'is-valid':senha.valid && (senha.dirty || senha.touched)
+           }"
+           required />
+    <div class="invalid-feedback mb-2" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
+      <div *ngIf="senha.errors.required">
+        Senha deve ser informada!
+      </div>
+    </div>
+
+    <button class="btn btn-primary btn-block" type="submit" (click)="entrar()">Entrar</button>
+    <img src="../../../assets/img/img-login.png" />
+
+  </form>
+</div>
+
+
+<!-- Tela Login 2 -->
+<!--<div class="main-wrap">
+  <div class="login-main">
+    <input type="text" placeholder="E-mail" class="box1 border1">
+    <input type="password" placeholder="Senha" class="box1 border2">
+    <input type="submit" class="send" value="Ir">
+    <p>Esqueceu sua senha? <a href="#">Clique Aqui</a></p>
+  </div>
+</div>-->

@@ -33,9 +33,8 @@ namespace Itix.LocaVeiculos.Web
             });
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-
             services.AddSingleton<IConfiguration>(Configuration);
-            services.AddTransient<ICategoriaRepositorio, CategoriaRepositorio>();
+            services.AddTransient<IBaseRepositorio, RepositorioDapper>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -78,7 +77,7 @@ namespace Itix.LocaVeiculos.Web
 
                 if (env.IsDevelopment())
                 {
-                    /// spa.UseAngularCliServer(npmScript: "start");
+                    //spa.UseAngularCliServer(npmScript: "start");
                     spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
                 }
             });

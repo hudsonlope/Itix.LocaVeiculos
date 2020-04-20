@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Itix.LocaVeiculos.Dominio.Contratos;
+using Itix.LocaVeiculos.Dominio.Entidades;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Itix.LocaVeiculos.Web.Controllers
@@ -10,10 +11,10 @@ namespace Itix.LocaVeiculos.Web.Controllers
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
-        ICategoriaRepositorio _categoriaRepositorio;
-        public SampleDataController(ICategoriaRepositorio categoriaRepositorio)
+        IBaseRepositorio _db;
+        public SampleDataController(IBaseRepositorio categoriaRepositorio)
         {
-            _categoriaRepositorio = categoriaRepositorio;
+            _db = categoriaRepositorio;
         }
 
         private static string[] Summaries = new[]
@@ -27,6 +28,16 @@ namespace Itix.LocaVeiculos.Web.Controllers
             //var atualizar = _categoriaRepositorio.Get(5);
 
             //_categoriaRepositorio.Update(CategoriaNova);
+
+            //var carro = new Carro() { Marca = "Toyota", Modelo = "Corolla", Ano = "2012", Cor = "Bege", Ativo = true, Chassi = "1234578fdfdf6544", Categoria_Id = 4, DtCadastro = DateTime.Now };
+
+            //var retorno = _db.Insert<Carro>(carro);
+
+            //var getTeste = _db.GetList<Carro>();
+
+            //var tabelas = new List<string>() { "Categoria", "Carro" };
+
+            //var getTeste1 = _db.InnerJoinCategoriaCarro();
 
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Itix.LocaVeiculos.Dominio.Entidades
 {
+    [Table("Cliente")]
     public class Cliente : BaseEntity
     {
         public string Nome { get; set; }
@@ -12,5 +14,7 @@ namespace Itix.LocaVeiculos.Dominio.Entidades
         public string CPF { get; set; }
         public string Telefone { get; set; }
         public DateTime DtNascimento { get; set; }
+
+        public CarroLocado CarroLocado { get; set; }
     }
 }

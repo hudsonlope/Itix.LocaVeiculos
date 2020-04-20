@@ -12,14 +12,12 @@
 
 {
   "ConnectionStrings": {
-    "DefaultConnection": "Data Source =.\\MSSQLSERVER; Initial Catalog = LocaVeiculos; Integrated Security = SSPI;"
+    "Connection": "Server=localhost;Database=LocaVeiculos;Trusted_Connection=True;MultipleActiveResultSets=true"
   },
   "Logging": {
-    "IncludeScopes": false,
     "LogLevel": {
-      "Default": "Debug",
-      "System": "Information",
-      "Microsoft": "Information"
+      "Default": "Warning"
     }
-  }
+  },
+  "AllowedHosts": "*"
 }

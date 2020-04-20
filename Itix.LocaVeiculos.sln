@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26124.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itix.LocaVeiculos.Dominio", "Itix.LocaVeiculos.Dominio\Itix.LocaVeiculos.Dominio.csproj", "{47B30BC9-3292-4BD8-A345-A15AC12939B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Itix.LocaVeiculos.Dominio", "Itix.LocaVeiculos.Dominio\Itix.LocaVeiculos.Dominio.csproj", "{47B30BC9-3292-4BD8-A345-A15AC12939B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itix.LocaVeiculos.Repositorio", "Itix.LocaVeiculos.Repositorio\Itix.LocaVeiculos.Repositorio.csproj", "{55154EA6-A434-4193-AF7A-BF47CCC67E6C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Itix.LocaVeiculos.Repositorio", "Itix.LocaVeiculos.Repositorio\Itix.LocaVeiculos.Repositorio.csproj", "{55154EA6-A434-4193-AF7A-BF47CCC67E6C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Itix.LocaVeiculos.Web", "Itix.LocaVeiculos.Web\Itix.LocaVeiculos.Web.csproj", "{9D97EC22-4F20-484E-8D60-47EB1DACF774}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Itix.LocaVeiculos.Web", "Itix.LocaVeiculos.Web\Itix.LocaVeiculos.Web.csproj", "{9D97EC22-4F20-484E-8D60-47EB1DACF774}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +17,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{47B30BC9-3292-4BD8-A345-A15AC12939B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,5 +55,11 @@ Global
 		{9D97EC22-4F20-484E-8D60-47EB1DACF774}.Release|x64.Build.0 = Release|Any CPU
 		{9D97EC22-4F20-484E-8D60-47EB1DACF774}.Release|x86.ActiveCfg = Release|Any CPU
 		{9D97EC22-4F20-484E-8D60-47EB1DACF774}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6B650460-E461-40F3-B94F-B1009E23D9FA}
 	EndGlobalSection
 EndGlobal
