@@ -16,6 +16,7 @@
            }"
            email
            required />
+
     <div class="invalid-feedback mb-2" *ngIf="email.invalid && (email.dirty || email.touched)">
       <div *ngIf="email.errors.required">
         E-mail é de preenchimento obrigatório!
@@ -38,6 +39,7 @@
            'is-valid':senha.valid && (senha.dirty || senha.touched)
            }"
            required />
+    
     <div class="invalid-feedback mb-2" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
       <div *ngIf="senha.errors.required">
         Senha deve ser informada!
