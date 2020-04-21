@@ -7,6 +7,8 @@ namespace Itix.LocaVeiculos.Dominio.Entidades
     [Table("CarroLocado")]
     public class CarroLocado : BaseEntity
     {
+        [Key]
+        public int CarroLocado_Id { get; set; }
         public int QtdDiasLocado { get; set; }
         public DateTime DtPrimeiroDia { get; set; }
         public DateTime DtUltimoDia { get; set; }

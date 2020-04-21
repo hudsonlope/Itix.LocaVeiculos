@@ -11,11 +11,11 @@ namespace Itix.LocaVeiculos.Web.Controllers
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
-        IBaseRepositorio _db;
-        public SampleDataController(IBaseRepositorio categoriaRepositorio)
-        {
-            _db = categoriaRepositorio;
-        }
+        //IBaseRepositorio _db;
+        //public SampleDataController(IBaseRepositorio categoriaRepositorio)
+        //{
+        //    _db = categoriaRepositorio;
+        //}
 
         private static string[] Summaries = new[]
         {

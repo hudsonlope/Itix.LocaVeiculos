@@ -11,10 +11,10 @@ namespace Itix.LocaVeiculos.Web.Controllers
     [Route("api/[controller]")]
     public class CategoriaController : Controller
     {
-        private readonly IBaseRepositorio _db;
-        public CategoriaController(IBaseRepositorio repositorio)
+        private readonly ICategoriaRepositorio _db;
+        public CategoriaController(ICategoriaRepositorio categoriaRepositorio)
         {
-            _db = repositorio;
+            _db = categoriaRepositorio;
         }
 
         [HttpGet]
@@ -22,7 +22,7 @@ namespace Itix.LocaVeiculos.Web.Controllers
         {
             try
             {
-                return Ok(_db.GetList<Categoria>());
+                return Ok(_db.GetList());
             }
             catch (Exception ex)
             {
@@ -35,7 +35,7 @@ namespace Itix.LocaVeiculos.Web.Controllers
         {
             try
             {
-                _db.Insert<Categoria>(categoria);
+                _db.Insert(categoria);
                 return Created("api/categoria", categoria);
             }
             catch (Exception ex)

@@ -5,16 +5,14 @@ using System.Text;
 
 namespace Itix.LocaVeiculos.Dominio.Contratos
 {
-    public interface IBaseRepositorio
+    public interface IBaseRepositorio<TEntity> where TEntity : class
     {
-        TEntity Get<TEntity>(int id) where TEntity : class;
-        IEnumerable<TEntity> GetList<TEntity>() where TEntity : class;
-        long Insert<TEntity>(TEntity entity) where TEntity : class;
-        bool InsertList<TEntity>(List<TEntity> listEntity) where TEntity : class;
-        bool Update<TEntity>(TEntity entity) where TEntity : class;
-        bool Delete<TEntity>(TEntity entity) where TEntity : class;
-        IEnumerable<TEntity> Query<TEntity>(string query) where TEntity : class;
-
-        IEnumerable<Carro> InnerJoinCategoriaCarro();
+        TEntity Get(int id);
+        IEnumerable<TEntity> GetList();
+        long Insert(TEntity entity);
+        bool InsertList(List<TEntity> listEntity);
+        bool Update(TEntity entity);
+        bool Delete(TEntity entity);
+        IEnumerable<TEntity> Query(string query);
     }
 }

@@ -6,6 +6,8 @@ namespace Itix.LocaVeiculos.Dominio.Entidades
     [Table("HistoricoLocacao")]
     public class HistoricoLocacao : BaseEntity
     {
+        [Key]
+        public int HistoricoLocacao_Id { get; set; }
         public int QtdDiasLocados { get; set; }
         public DateTime DtPrimeiroDia { get; set; }
         public DateTime DtUltimoDia { get; set; }

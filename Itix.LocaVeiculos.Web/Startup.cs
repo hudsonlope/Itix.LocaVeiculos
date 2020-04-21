@@ -34,7 +34,12 @@ namespace Itix.LocaVeiculos.Web
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<IConfiguration>(Configuration);
-            services.AddTransient<IBaseRepositorio, RepositorioDapper>();
+
+            //Repositorios:
+            services.AddTransient<ICategoriaRepositorio, CategoriaRepositorio>();
+            services.AddTransient<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddTransient<IClienteRepositorio, ClienteRepositorio>();
+            services.AddTransient<ICarroRepositorio, CarroRepositorio>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -77,8 +82,8 @@ namespace Itix.LocaVeiculos.Web
 
                 if (env.IsDevelopment())
                 {
-                    //spa.UseAngularCliServer(npmScript: "start");
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
+                    spa.UseAngularCliServer(npmScript: "start");
+                    //spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
                 }
             });
         }
