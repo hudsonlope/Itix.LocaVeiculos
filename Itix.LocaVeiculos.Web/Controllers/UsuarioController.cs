@@ -1,5 +1,6 @@
 ﻿using Itix.LocaVeiculos.Dominio.Contratos;
 using Itix.LocaVeiculos.Dominio.Entidades;
+using Itix.LocaVeiculos.Web.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using System;
@@ -33,10 +34,20 @@ namespace Itix.LocaVeiculos.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post()
+        public ActionResult Post([FromBody] Usuario usuario)
         {
             try
             {
+                var erros = Validacao.getValidationErros(usuario);
+                if (erros.Count() != 0)
+                    return BadRequest(string.Join(". ", erros));
+
+                var usuarioCadastrado = _db.Get(usuario.Email);
+
+                if (usuarioCadastrado != null)
+                    return BadRequest("Usuário já cadastrado no sistema");
+
+                _db.Insert(usuario);
                 return Ok();
             }
             catch (Exception ex)

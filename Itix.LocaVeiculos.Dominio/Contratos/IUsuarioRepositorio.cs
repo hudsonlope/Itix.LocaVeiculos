@@ -8,5 +8,6 @@ namespace Itix.LocaVeiculos.Dominio.Contratos
     public interface IUsuarioRepositorio : IBaseRepositorio<Usuario>
     {
         Usuario Get(string email, string senha);
+        Usuario Get(string email);
     }
 }

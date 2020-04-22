@@ -23,6 +23,16 @@ export class UsuarioServico {
     return this._usuario;
   }
 
+  get headers(): HttpHeaders {
+    return new HttpHeaders().set('content-type', 'application/json');
+  }
+
+
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.baseURL = baseUrl
+  }
+
+
   public usuario_autenticado(): boolean {
     return this._usuario != null && this._usuario.email != "" && this._usuario.senha != "";
   }
@@ -32,20 +42,18 @@ export class UsuarioServico {
     this._usuario = null;
   }
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this.baseURL = baseUrl
-  }
-
   public verificarUsuario(usuario: Usuario): Observable<Usuario> {
-    const headers = new HttpHeaders().set('content-type', 'application/json');
 
     var body = {
       email: usuario.email,
       senha: usuario.senha
     }
-    //Raiz do site:
+    return this.http.post<Usuario>(this.baseURL + "api/usuario/VerificarUsuario", body, { headers: this.headers });
+  }
+
+  public cadastrarUsuario(usuario: Usuario): Observable<Usuario> {
     debugger;
-    return this.http.post<Usuario>(this.baseURL + "api/usuario/VerificarUsuario", body, { headers });
+    return this.http.post<Usuario>(this.baseURL + "api/usuario", JSON.stringify(usuario), { headers: this.headers })
   }
 
 }

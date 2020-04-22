@@ -1,5 +1,6 @@
 ﻿using Itix.LocaVeiculos.Dominio.Contratos;
 using Itix.LocaVeiculos.Dominio.Entidades;
+using Itix.LocaVeiculos.Web.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,10 @@ namespace Itix.LocaVeiculos.Web.Controllers
         {
             try
             {
+                var erros = Validacao.getValidationErros(categoria);
+                if (erros.Count() != 0)
+                        return BadRequest(string.Join(". ", erros));
+
                 _db.Insert(categoria);
                 return Created("api/categoria", categoria);
             }

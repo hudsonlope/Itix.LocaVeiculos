@@ -1,0 +1,55 @@
+<div class="text-center">
+  <form class="form-signin">
+    <h1 class="h4 mb-3 titulo">Cadastro de Categoria</h1>
+
+    <label for="nomeCategoria" class="sr-only">Nome Categoria</label>
+    <input type="text"
+           id="nomeCategoria"
+           name="nomeCategoria"
+           placeholder="Nome da Categoria"
+           class="form-control mb-2"
+           [(ngModel)]="categoria.nomeCategoria"
+           #nomeCategoria="ngModel"
+           [ngClass]="{
+           'is-invalid':nomeCategoria.invalid && (nomeCategoria.dirty || nomeCategoria.touched),
+           'is-valid':nomeCategoria.valid && (nomeCategoria.dirty || nomeCategoria.touched)
+           }"
+           required />
+    <div class="invalid-feedback mb-2" *ngIf="nomeCategoria.invalid && (nomeCategoria.dirty || nomeCategoria.touched)">
+      <div *ngIf="nomeCategoria.errors.required">
+        Nome da Categoria é de preenchimento obrigatório!
+      </div>
+    </div>
+
+
+    <label for="precoBaseDiaria" class="sr-only">Preço</label>
+    <input type="number" id="precoBaseDiaria"
+           name="precoBaseDiaria"
+           placeholder="Preço Base da Diária"
+           class="form-control mb-2"
+           [ngClass]="{
+           'is-invalid':precoBaseDiaria.invalid && (precoBaseDiaria.dirty || precoBaseDiaria.touched),
+           'is-valid':precoBaseDiaria.valid && (precoBaseDiaria.dirty || precoBaseDiaria.touched)
+           }"
+           [(ngModel)]="categoria.precoBaseDiaria"
+           #precoBaseDiaria="ngModel"
+           required />
+    <div class="invalid-feedback mb-2" *ngIf="precoBaseDiaria.invalid && (precoBaseDiaria.dirty || precoBaseDiaria.touched)">
+      <div *ngIf="precoBaseDiaria.errors.required">
+        Preço Base é de preenchimento obrigatório!
+      </div>
+    </div>
+
+    <button class="btn btn-primary mb-2" type="submit" (click)="cadastrar()" [disabled]="ativar_spinner">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+      Cadastrar
+    </button>
+
+    <div class="alert alert-danger" *ngIf="mensagem">
+      {{ mensagem }}
+    </div>
+    <div class="alert alert-success" *ngIf="categoriaCadastrada">
+      Categoria Cadastrada com sucesso!
+    </div>
+  </form>
+</div>

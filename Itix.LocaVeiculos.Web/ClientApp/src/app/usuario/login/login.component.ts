@@ -9,7 +9,7 @@ import { UsuarioServico } from "../../servicos/usuario/usuario.servico";
   styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
-  public usuario;
+  public usuario: Usuario;
   public returnUrl: string;
   public mensagem: string;
   private ativar_spinner: boolean;
@@ -37,7 +37,6 @@ export class LoginComponent implements OnInit {
         }
       },
       err => {
-        console.log(err.error);
         this.mensagem = err.error;
         this.ativar_spinner = false;
       }

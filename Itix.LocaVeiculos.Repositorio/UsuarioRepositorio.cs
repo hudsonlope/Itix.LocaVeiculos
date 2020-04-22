@@ -26,6 +26,16 @@ namespace Itix.LocaVeiculos.Repositorio
             }
         }
 
+        public Usuario Get(string email)
+        {
+            using (var con = new SqlConnection(ConnectionString))
+            {
+                string query = String.Format("select * from usuario where email='{0}'", email);
+                var usuario = con.Query<Usuario>(query);
+                return usuario.FirstOrDefault();
+            }
+        }
+
 
     }
 }

@@ -1,0 +1,10 @@
+.titulo{
+    color: #666;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: auto;
+}
