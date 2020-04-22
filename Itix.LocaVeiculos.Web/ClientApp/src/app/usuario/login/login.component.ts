@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
         this.usuarioServico.usuario = usuario_json;
 
         if (this.returnUrl == null) {
-          this.router.navigate(['/']);
+          this.router.navigate(['/categoria']);
         }
         else {
           this.router.navigate([this.returnUrl]);

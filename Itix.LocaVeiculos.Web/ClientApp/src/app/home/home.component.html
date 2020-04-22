@@ -1,0 +1,11 @@
+
+<div *ngIf="!_usuarioAutenticado">
+  <div class="text-center">
+    <h2>Para Locar seu veículo entre com sua conta</h2>
+  </div>
+  <app-login></app-login>
+</div>
+
+<div class="text-center" *ngIf="_usuarioAutenticado">
+  <h1>CONTEUDO NORMAL DO SITE...</h1>
+</div>
