@@ -1,65 +1,145 @@
 <!-- Tela Login 1 -->
-<div class="text-center">
-  <form class="form-signin">
-    <h1 class="h4 mb-2 login">Login do Cliente</h1>
-    <label for="email" class="sr-only">Email</label>
-    <input type="email"
-           id="email"
-           name="email"
-           placeholder="Informe seu E-mail"
-           class="form-control mb-2"
-           [(ngModel)]="usuario.email"
-           #email="ngModel"
-           [ngClass]="{
-           'is-invalid':email.invalid && (email.dirty || email.touched),
-           'is-valid':email.valid && (email.dirty || email.touched)
-           }"
-           email
-           required />
 
-    <div class="invalid-feedback mb-2" *ngIf="email.invalid && (email.dirty || email.touched)">
-      <div *ngIf="email.errors.required">
-        E-mail é de preenchimento obrigatório!
-      </div>
-      <div *ngIf="email.errors.email">
-        E-mail invalido!
+<app-home *ngIf="_usuarioAutenticado;"></app-home>
+
+<section class="banner-area relative" id="home" *ngIf="!_usuarioAutenticado;">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row fullscreen d-flex align-items-center justify-content-center">
+      <div class="col-lg-5  col-md-6 header-right">
+        <h4 class="text-white pb-30 text-center">Faça login no sistema para alugar seu veículo</h4>
+        <form class="form" role="form" autocomplete="off">
+          <div class="form-group">
+            <div class="" id="">
+              <!--<input class="form-control txt-field" type="text" name="email" placeholder="Your name">-->
+              <label for="email" class="sr-only">Email</label>
+              <input type="email"
+                     id="email"
+                     name="email"
+                     placeholder="Informe seu E-mail"
+                     class="form-control mb-2"
+                     [(ngModel)]="usuario.email"
+                     #email="ngModel"
+                     [ngClass]="{
+                       'is-invalid':email.invalid && (email.dirty || email.touched),
+                       'is-valid':email.valid && (email.dirty || email.touched)
+                       }"
+                     email
+                     required />
+
+              <div class="invalid-feedback mb-2" *ngIf="email.invalid && (email.dirty || email.touched)">
+                <div *ngIf="email.errors.required">
+                  E-mail é de preenchimento obrigatório!
+                </div>
+                <div *ngIf="email.errors.email">
+                  E-mail invalido!
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="senha" class="sr-only">Senha</label>
+            <input type="password"
+                   id="senha"
+                   name="senha"
+                   placeholder="Senha"
+                   class="form-control mb-2"
+                   [(ngModel)]="usuario.senha"
+                   #senha="ngModel"
+                   [ngClass]="{
+                     'is-invalid':senha.invalid && (senha.dirty || senha.touched),
+                     'is-valid':senha.valid && (senha.dirty || senha.touched)
+                     }"
+                   required />
+
+            <div class="invalid-feedback mb-2" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
+              <div *ngIf="senha.errors.required">
+                Senha deve ser informada!
+              </div>
+            </div>
+          </div>
+
+
+          <!--<div class="from-group">
+            <input class="form-control txt-field" type="text" name="name" placeholder="Your name">
+            <input class="form-control txt-field" type="email" name="email" placeholder="Email address">
+            <input class="form-control txt-field" type="tel" name="phone" placeholder="Phone number">
+          </div>-->
+          <div class="form-group row">
+            <div class="col-md-12">
+              <button class="btn btn-default btn-lg btn-block text-center text-uppercase mb-2" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+                Entrar
+              </button>
+              <div class="alert-link text-center mb-2"> Novo por aqui?<a href="{{ _UrlNovoUsuario }}"> Cadastre-se</a></div>
+
+              <div class="alert alert-danger text-center" *ngIf="mensagem">{{ mensagem }}</div>
+
+            </div>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
+</section>
 
-    <label for="senha" class="sr-only">Senha</label>
-    <input type="password"
-           id="senha"
-           name="senha"
-           placeholder="Senha"
-           class="form-control mb-2"
-           [(ngModel)]="usuario.senha"
-           #senha="ngModel"
-           [ngClass]="{
-           'is-invalid':senha.invalid && (senha.dirty || senha.touched),
-           'is-valid':senha.valid && (senha.dirty || senha.touched)
-           }"
-           required />
+<!--<div class="text-center">
+  <form class="form-signin">-->
+<!--<h1 class="h4 mb-2 login">Login do Cliente</h1>
+<label for="email" class="sr-only">Email</label>
+<input type="email"
+       id="email"
+       name="email"
+       placeholder="Informe seu E-mail"
+       class="form-control mb-2"
+       [(ngModel)]="usuario.email"
+       #email="ngModel"
+       [ngClass]="{
+       'is-invalid':email.invalid && (email.dirty || email.touched),
+       'is-valid':email.valid && (email.dirty || email.touched)
+       }"
+       email
+       required />
 
-    <div class="invalid-feedback mb-2" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
-      <div *ngIf="senha.errors.required">
-        Senha deve ser informada!
-      </div>
-    </div>
-
-    <button class="btn btn-primary btn-block mb-3" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
-      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
-      Entrar
-    </button>
-    <div> Novo por aqui?<a [routerLink]='["/novo-usuario"]'> Cadastre-se</a></div>
-
-    <div class="alert alert-danger" *ngIf="mensagem">{{ mensagem }}</div>
-
-    <img src="../../../assets/img/img-login.png" />
-
-  </form>
+<div class="invalid-feedback mb-2" *ngIf="email.invalid && (email.dirty || email.touched)">
+  <div *ngIf="email.errors.required">
+    E-mail é de preenchimento obrigatório!
+  </div>
+  <div *ngIf="email.errors.email">
+    E-mail invalido!
+  </div>
 </div>
 
+<label for="senha" class="sr-only">Senha</label>
+<input type="password"
+       id="senha"
+       name="senha"
+       placeholder="Senha"
+       class="form-control mb-2"
+       [(ngModel)]="usuario.senha"
+       #senha="ngModel"
+       [ngClass]="{
+       'is-invalid':senha.invalid && (senha.dirty || senha.touched),
+       'is-valid':senha.valid && (senha.dirty || senha.touched)
+       }"
+       required />
 
+<div class="invalid-feedback mb-2" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
+  <div *ngIf="senha.errors.required">
+    Senha deve ser informada!
+  </div>
+</div>-->
+<!--<button class="btn btn-primary btn-block mb-3" type="submit" (click)="entrar()" [disabled]="ativar_spinner">
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+  Entrar
+</button>
+<div> Novo por aqui?<a [routerLink]='["/novo-usuario"]'> Cadastre-se</a></div>
+
+<div class="alert alert-danger" *ngIf="mensagem">{{ mensagem }}</div>
+
+<img src="../../../assets/img/img-login.png" />-->
+<!--</form>
+</div>-->
 <!-- Tela Login 2 -->
 <!--<div class="main-wrap">
   <div class="login-main">

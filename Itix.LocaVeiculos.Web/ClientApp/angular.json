@@ -24,13 +24,40 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/bootstrap.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.css"
+              "src/assets/css/linearicons.css",
+              "src/assets/css/font-awesome.min.css",
+              "src/assets/css/magnific-popup.css",
+              "src/assets/css/animate.min.css",
+              "src/assets/css/jquery-ui.css",
+              "src/assets/css/owl.carousel.css",
+              "src/assets/css/main.css",
+              "src/styles.css",
+              "src/assets/css/nice-select.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
               "node_modules/popper.js/dist/umd/popper.min.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/vendor/jquery-2.2.4.min.js",
+              "src/assets/js/vendor/popper.min.js",
+              "src/assets/js/vendor/bootstrap.min.js",
+              "src/assets/js/vendor/jquery-ui.js",
+              "src/assets/js/easing.min.js",
+              "src/assets/js/hoverIntent.js",
+              "src/assets/js/superfish.min.js",
+              "src/assets/js/jquery_ajaxchimp.min.js",
+              "src/assets/js/jquery_magnific-popup.min.js",
+              "src/assets/js/owl_carousel.min.js",
+              "src/assets/js/jquery_sticky.js",
+              "src/assets/js/waypoints.min.js",
+              "src/assets/js/jquery_counterup.min.js",
+              "src/assets/js/parallax.min.js",
+              "src/assets/js/mail-script.js",
+              "src/assets/js/main.js",
+              "src/assets/js/ui_datepicker-pt-BR.js",
+              "src/assets/js/jquery_nice-select.min.js"
             ]
           },
           "configurations": {

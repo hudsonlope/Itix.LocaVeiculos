@@ -18,7 +18,7 @@ export class GuardaRotas implements CanActivate {
     }
 
     //se usuario não autenticado
-    this.router.navigate(['/entrar'], { queryParams: { returnUrl: state.url } });
+    this.router.navigate([''], { queryParams: { returnUrl: state.url } });
     return false;
   }
 }

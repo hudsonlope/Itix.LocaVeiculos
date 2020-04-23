@@ -10,8 +10,10 @@ import { Usuario } from "../../model/usuario";
 
 export class UsuarioServico {
 
-  private baseURL: string;
+  public baseURL: string;
   private _usuario: Usuario;
+
+  public _usuarioAutenticado = sessionStorage.getItem("usuarioLogado") == "true";
 
   set usuario(usuario: Usuario) {
     sessionStorage.setItem("usuario-autenticado", JSON.stringify(usuario));

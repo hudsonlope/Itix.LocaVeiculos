@@ -1,5 +1,4 @@
-
-<div *ngIf="!_usuarioAutenticado">
+<!--<div *ngIf="!_usuarioAutenticado">
   <div class="text-center">
     <h2>Para Locar seu veículo entre com sua conta</h2>
   </div>
@@ -8,4 +7,93 @@
 
 <div class="text-center" *ngIf="_usuarioAutenticado">
   <h1>CONTEUDO NORMAL DO SITE...</h1>
-</div>
+</div>-->
+
+<!--<app-login></app-login>-->
+
+<section class="banner-area relative" id="home">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row fullscreen d-flex align-items-center justify-content-center">
+      <div class="banner-content col-lg-7 col-md-6 ">
+        <h6 class="text-white ">Olá {{usuario.nome + " " + usuario.sobrenome}},</h6>
+        <h1 class="text-white text-uppercase">
+          Seja bem vindo!
+        </h1>
+        <p class="pt-20 pb-20 text-white">
+          Preencha todos os campos ao lado para realizar a locação do veículo.
+        </p>
+      </div>
+      <div class="col-lg-5  col-md-6 header-right">
+        <h4 class="text-white pb-30 text-center">Preencha os campos abaixo:</h4>
+        <form class="form" role="form" autocomplete="off">
+          <div class="form-group">
+            <div class="default-select" id="default-select">
+              <select>
+                <option value="" disabled selected hidden>Selecione a marca do carro</option>
+                <option value="1">BMW</option>
+                <option value="1">Farrari</option>
+                <option value="1">Toyota</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="default-select" id="default-select">
+              <select>
+                <option value="" disabled selected hidden>Selecione a modelo do carro</option>
+                <option value="1">Corolla 2015</option>
+                <option value="1">Virtus 2020</option>Escolha o carro
+              </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-6 wrap-left">
+              <div class="input-group dates-wrap">
+                <input id="datepicker" class="dates form-control" placeholder="Quando?" type="text">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 wrap-right">
+              <div class="input-group dates-wrap">
+                <input id="datepicker" class="dates form-control" placeholder="Hora?" type="time">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><span class="lnr lnr-clock"></span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-6 wrap-left">
+              <div class="input-group dates-wrap">
+                <input id="datepicker2" class="dates form-control" placeholder="Até Quando?" type="text">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 wrap-right">
+              <div class="input-group dates-wrap">
+                <input id="datepicker" class="dates form-control" placeholder="Hora?" type="time">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><span class="lnr lnr-clock"></span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--<div class="from-group">
+            <input class="form-control txt-field" type="text" name="name" placeholder="Your name">
+            <input class="form-control txt-field" type="email" name="email" placeholder="Email address">
+            <input class="form-control txt-field" type="tel" name="phone" placeholder="Phone number">
+          </div>-->
+          <div class="form-group row">
+            <div class="col-md-12">
+              <button type="reset" class="btn-block text-center text-uppercase primary-btn">Confirmar Locação</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

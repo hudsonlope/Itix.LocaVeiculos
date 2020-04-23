@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
   public returnUrl: string;
   public mensagem: string;
   private ativar_spinner: boolean;
+  public _usuarioAutenticado = this.usuarioServico._usuarioAutenticado;
+  public _UrlNovoUsuario = this.usuarioServico.baseURL + "novo-usuario";
 
   constructor(private router: Router, private activatedRouter: ActivatedRoute, private usuarioServico: UsuarioServico) {
 
@@ -30,7 +32,9 @@ export class LoginComponent implements OnInit {
         this.usuarioServico.usuario = usuario_json;
 
         if (this.returnUrl == null) {
-          this.router.navigate(['/categoria']);
+          //this.router.navigate(['/app-home']);
+          sessionStorage.setItem("usuarioLogado", "true");
+          window.location.href = this.usuarioServico.baseURL + "app-home";
         }
         else {
           this.router.navigate([this.returnUrl]);

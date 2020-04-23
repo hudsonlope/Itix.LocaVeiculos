@@ -38,14 +38,14 @@ import { CategoriaServico } from './servicos/categoria/categoria.servico';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
+      { path: 'app-home', component: HomeComponent, canActivate: [GuardaRotas] },
 
       //Remover
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
 
       { path: 'categoria', component: CategoriaComponent },
-      { path: 'entrar', component: LoginComponent },
+      { path: '', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent }
 
     ])
@@ -56,4 +56,5 @@ import { CategoriaServico } from './servicos/categoria/categoria.servico';
 export class AppModule { }
 
 
+//{ path: 'app-home', component: HomeComponent, pathMatch: 'full' },
 //{ path: 'categoria', component: CategoriaComponent, canActivate: [GuardaRotas] },

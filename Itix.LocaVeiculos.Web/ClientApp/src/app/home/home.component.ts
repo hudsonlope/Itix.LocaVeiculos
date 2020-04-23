@@ -7,10 +7,16 @@ import { UsuarioServico } from '../servicos/usuario/usuario.servico';
 })
 
 export class HomeComponent {
-  private _usuarioAutenticado: boolean;
+  //private _usuarioAutenticado: boolean;
+  public _usuarioAutenticado: boolean;
+
+  get usuario() {
+    return this.usuarioServico.usuario;
+  }
 
   constructor(private usuarioServico: UsuarioServico) {
-    this._usuarioAutenticado = usuarioServico.usuario_autenticado();
+    //this._usuarioAutenticado = usuarioServico.usuario_autenticado();
+    this._usuarioAutenticado = sessionStorage.getItem("usuarioLogado") == "true";
   }
 
 }

@@ -61,6 +61,10 @@ namespace Itix.LocaVeiculos.Web.Controllers
         {
             try
             {
+                var erros = Validacao.getValidationErros(usuario, true);
+                if (erros.Count() != 0)
+                    return BadRequest(string.Join(". ", erros));
+
                 var usuarioRetorno = _db.Get(usuario.Email, usuario.Senha);
 
                 if (usuarioRetorno != null)

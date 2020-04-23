@@ -13,6 +13,7 @@ export class CadastroUsuarioComponent implements OnInit {
   public ativar_spinner: boolean;
   public mensagem: string;
   public usuarioCadastrado: boolean;
+  public _UrlVoltar = this.usuarioServico.baseURL + "";
 
   constructor(private usuarioServico: UsuarioServico) {
 

@@ -27,11 +27,17 @@ export class NavMenuComponent {
   }
 
   public usuarioLogado(): boolean {
-    return this.usuarioServico.usuario_autenticado();
+    var _usuarioAutenticado = this.usuarioServico._usuarioAutenticado;
+    if (this.usuarioServico.usuario_autenticado() || _usuarioAutenticado) {
+      return true;
+    }
+    return false;
   }
 
   sair() {
+    sessionStorage.setItem("usuarioLogado", "");
     this.usuarioServico.limpar_sessao();
-    this.router.navigate(['/']);
+    window.location.href = this.usuarioServico.baseURL;
+    //this.router.navigate(['/']);
   }
 }
