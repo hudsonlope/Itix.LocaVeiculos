@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core"
 import { Categoria } from "../model/categoria";
 import { CategoriaServico } from "../servicos/categoria/categoria.servico";
+import { UsuarioServico } from "../servicos/usuario/usuario.servico";
 
 @Component({
   selector: 'app-categoria',
@@ -13,8 +14,9 @@ export class CategoriaComponent implements OnInit {
   public ativar_spinner: boolean;
   public categoriaCadastrada: boolean; 
   public mensagem: string;
+  //public _UrlCategoria = this.usuarioServico.baseURL + "categoria";
 
-  constructor(private categoriaServico: CategoriaServico) {
+  constructor(private categoriaServico: CategoriaServico, private usuarioServico: UsuarioServico) {
 
   }
   ngOnInit(): void {
@@ -26,14 +28,17 @@ export class CategoriaComponent implements OnInit {
     this.ativar_spinner = true;
 
     this.categoriaServico.cadastrar(this.categoria).subscribe(
-      produtoJson => {
+      categoriaJson => {
         this.mensagem = "";
         this.ativar_spinner = false;
         this.categoriaCadastrada = true;
-        console.log(produtoJson);
+
+        var resetForm: HTMLFormElement;
+        resetForm = <HTMLFormElement>document.getElementById('formulario');
+        if (resetForm)
+          resetForm.reset();
       },
       err => {
-        console.log(err.error);
         this.mensagem = err.error;
         this.ativar_spinner = false;
       }

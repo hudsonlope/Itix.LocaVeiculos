@@ -31,6 +31,11 @@ export class CadastroUsuarioComponent implements OnInit {
         this.usuarioCadastrado = true;
         this.mensagem = "";
         this.ativar_spinner = false;
+
+        var resetForm: HTMLFormElement;
+        resetForm = <HTMLFormElement>document.getElementById('formulario');
+        if (resetForm)
+          resetForm.reset();
       },
       err => {
         this.mensagem = err.error;

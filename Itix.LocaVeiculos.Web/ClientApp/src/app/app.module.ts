@@ -18,6 +18,8 @@ import { GuardaRotas } from './autorizacao/guarda.rotas';
 import { UsuarioServico } from './servicos/usuario/usuario.servico';
 import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.component';
 import { CategoriaServico } from './servicos/categoria/categoria.servico';
+import { CarroServico } from './servicos/carro/carro.servico';
+import { CarroComponent } from './carro/carro.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { CategoriaServico } from './servicos/categoria/categoria.servico';
     FetchDataComponent,
 
     CategoriaComponent,
+    CarroComponent,
     LoginComponent,
     CadastroUsuarioComponent
   ],
@@ -39,18 +42,19 @@ import { CategoriaServico } from './servicos/categoria/categoria.servico';
     FormsModule,
     RouterModule.forRoot([
       { path: 'app-home', component: HomeComponent, canActivate: [GuardaRotas] },
+      { path: 'categoria', component: CategoriaComponent, canActivate: [GuardaRotas] },
+      { path: 'carro', component: CarroComponent, canActivate: [GuardaRotas] },
 
       //Remover
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
 
-      { path: 'categoria', component: CategoriaComponent },
       { path: '', component: LoginComponent },
       { path: 'novo-usuario', component: CadastroUsuarioComponent }
 
     ])
   ],
-  providers: [UsuarioServico, CategoriaServico],
+  providers: [UsuarioServico, CategoriaServico, CarroServico],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

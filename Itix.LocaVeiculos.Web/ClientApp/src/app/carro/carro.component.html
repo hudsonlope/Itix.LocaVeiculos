@@ -1,0 +1,195 @@
+<section class="banner-area relative" id="home" *ngIf="!_usuarioAutenticado;">
+  <div class="overlay overlay-bg"></div>
+  <div class="container">
+    <div class="row fullscreen d-flex align-items-center justify-content-center">
+      <div class="col-lg-5  col-md-6 header-right">
+        <h4 class="text-white pb-30 text-center">Cadastrar Carro</h4>
+
+        <form class="form" id="formulario" role="form" autocomplete="off">
+          <div class="form-group">
+            <label for="marca" class="sr-only">Marca</label>
+            <input type="text"
+                   id="marca"
+                   name="marca"
+                   placeholder="Marca"
+                   class="form-control mb-2"
+                   [(ngModel)]="carro.marca"
+                   #marca="ngModel"
+                   [ngClass]="{
+                   'is-invalid':marca.invalid && (marca.dirty || marca.touched),
+                   'is-valid':marca.valid && (marca.dirty || marca.touched)
+                   }"
+                   required />
+            <div class="invalid-feedback mb-2" *ngIf="marca.invalid && (marca.dirty || marca.touched)">
+              <div *ngIf="marca.errors.required">
+                Marca é de preenchimento obrigatório!
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="modelo" class="sr-only">Modelo</label>
+            <input type="text" id="modelo"
+                   name="modelo"
+                   placeholder="Modelo"
+                   class="form-control mb-2"
+                   [ngClass]="{
+                   'is-invalid':modelo.invalid && (modelo.dirty || modelo.touched),
+                   'is-valid':modelo.valid && (modelo.dirty || modelo.touched)
+                   }"
+                   [(ngModel)]="carro.modelo"
+                   #modelo="ngModel"
+                   required />
+            <div class="invalid-feedback mb-2" *ngIf="modelo.invalid && (modelo.dirty || modelo.touched)">
+              <div *ngIf="modelo.errors.required">
+                Modelo é de preenchimento obrigatório!
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="ano" class="sr-only">Ano</label>
+            <input type="text" id="ano"
+                   name="ano"
+                   placeholder="Ano"
+                   class="form-control mb-2"
+                   [ngClass]="{
+                   'is-invalid':ano.invalid && (ano.dirty || ano.touched),
+                   'is-valid':ano.valid && (ano.dirty || ano.touched)
+                   }"
+                   [(ngModel)]="carro.ano"
+                   #ano="ngModel"
+                   required />
+            <div class="invalid-feedback mb-2" *ngIf="ano.invalid && (ano.dirty || ano.touched)">
+              <div *ngIf="ano.errors.required">
+                Ano é de preenchimento obrigatório!
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="cor" class="sr-only">Cor</label>
+            <input type="text" id="cor"
+                   name="cor"
+                   placeholder="Cor"
+                   class="form-control mb-2"
+                   [ngClass]="{
+                   'is-invalid':cor.invalid && (cor.dirty || cor.touched),
+                   'is-valid':cor.valid && (cor.dirty || cor.touched)
+                   }"
+                   [(ngModel)]="carro.cor"
+                   #cor="ngModel"
+                   required />
+            <div class="invalid-feedback mb-2" *ngIf="cor.invalid && (cor.dirty || cor.touched)">
+              <div *ngIf="cor.errors.required">
+                Cor é de preenchimento obrigatório!
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="chassi" class="sr-only">Chassi</label>
+            <input type="text"
+                   id="chassi"
+                   name="chassi"
+                   placeholder="Chassi"
+                   class="form-control mb-2"
+                   [ngClass]="{
+                   'is-invalid':chassi.invalid && (chassi.dirty || chassi.touched),
+                   'is-valid':chassi.valid && (chassi.dirty || chassi.touched)
+                   }"
+                   [(ngModel)]="carro.chassi"
+                   #chassi="ngModel"
+                   required />
+            <div class="invalid-feedback mb-2" *ngIf="chassi.invalid && (chassi.dirty || chassi.touched)">
+              <div *ngIf="chassi.errors.required">
+                Chassi é de preenchimento obrigatório!
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <select [(ngModel)]="carro.categoria_id"
+                    id="categoria_id"
+                    name="categoria_id"
+                    placeholder="Selecione"
+                    class="form-control mb-2"
+                    [ngClass]="{
+                   'is-invalid':categoria_id.invalid && (categoria_id.dirty || categoria_id.touched),
+                   'is-valid':categoria_id.valid && (categoria_id.dirty || categoria_id.touched)
+                   }"
+                    #categoria_id="ngModel"
+                    required>
+              <option *ngFor="let categoria of categorias" [value]="categoria.categoria_Id" [selected]="categoria.categoria_Id == 999999999">{{categoria.nomeCategoria}}</option>
+            </select>
+            <div class="invalid-feedback mb-2" *ngIf="categoria_id.invalid && (categoria_id.dirty || categoria_id.touched)">
+              <div *ngIf="categoria_id.errors.required">
+                Selecione uma categoria
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="switch-wrap d-flex justify-content-between">
+              <p class="text-white">Ativo</p>
+              <div class="primary-switch">
+                <input type="checkbox"
+                       name="ativo"
+                       id="ativo"
+                       [(ngModel)]="carro.ativo"
+                       class="primary-switch form-control mb-2"
+                       checked />
+                <label for="ativo"></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="switch-wrap d-flex justify-content-between">
+              <p class="text-white">Possui Ar Condicionado</p>
+              <div class="primary-switch">
+                <input type="checkbox"
+                       id="possuiArCondicionado"
+                       name="possuiArCondicionado"
+                       [(ngModel)]="carro.possuiArCondicionado"
+                       class="primary-switch form-control mb-2"
+                       checked />
+                <label for="possuiArCondicionado"></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="switch-wrap d-flex justify-content-between">
+              <p class="text-white">Possui Direção Hidráulica</p>
+              <div class="primary-switch">
+                <input type="checkbox"
+                       id="possuiDirecaoHidraulica"
+                       name="possuiDirecaoHidraulica"
+                       [(ngModel)]="carro.possuiDirecaoHidraulica"
+                       class="primary-switch form-control mb-2"
+                       checked />
+                <label for="possuiDirecaoHidraulica"></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <div class="col-md-12">
+              <button class="btn btn-default btn-lg btn-block text-center text-uppercase mb-2" type="submit" (click)="cadastrar()" [disabled]="ativar_spinner">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+                Cadastrar
+              </button>
+              <div class="alert alert-danger text-center" *ngIf="mensagem">
+                {{ mensagem }}
+              </div>
+              <div class="alert alert-success text-center" *ngIf="cadastrado">
+                Carro Cadastrado com sucesso!
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

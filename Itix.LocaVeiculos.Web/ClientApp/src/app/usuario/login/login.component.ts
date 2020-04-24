@@ -37,7 +37,9 @@ export class LoginComponent implements OnInit {
           window.location.href = this.usuarioServico.baseURL + "app-home";
         }
         else {
-          this.router.navigate([this.returnUrl]);
+          sessionStorage.setItem("usuarioLogado", "true");
+          window.location.href = this.returnUrl;
+          //this.router.navigate([this.returnUrl]);
         }
       },
       err => {

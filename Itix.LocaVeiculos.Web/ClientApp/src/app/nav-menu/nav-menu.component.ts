@@ -10,6 +10,7 @@ import { UsuarioServico } from '../servicos/usuario/usuario.servico';
 })
 export class NavMenuComponent {
   isExpanded = false;
+  public baseUrl = this.usuarioServico.baseURL; 
 
   get usuario() {
     return this.usuarioServico.usuario;

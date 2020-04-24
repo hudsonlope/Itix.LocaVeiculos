@@ -8,5 +8,6 @@ namespace Itix.LocaVeiculos.Dominio.Contratos
     public interface ICarroRepositorio : IBaseRepositorio<Carro>
     {
         IEnumerable<Carro> InnerJoinCategoriaCarro();
+        int InsertCarro(Carro entity);
     }
 }

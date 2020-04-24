@@ -4,7 +4,8 @@
     <div class="row fullscreen d-flex align-items-center justify-content-center">
       <div class="col-lg-5  col-md-6 header-right">
         <h4 class="text-white pb-30 text-center">Criar Conta</h4>
-        <form class="form" role="form" autocomplete="off">
+
+        <form class="form" role="form" id="formulario" autocomplete="off">
           <div class="form-group">
             <div class="" id="">
               <!--<input class="form-control txt-field" type="text" name="email" placeholder="Your name">-->
@@ -207,7 +208,7 @@
               <div class="alert alert-success text-center" *ngIf="usuarioCadastrado">
                 Usuário Cadastrado com sucesso!
                 <br />
-                <a class="alert-link" [routerLink]='["/"]'> Entrar no sistema</a>
+                <a class="alert-link" href="{{ _UrlVoltar }}"> Entrar no sistema</a>
               </div>
 
               <!--<img src="../../../assets/img/img-login.png" />-->
