@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace Itix.LocaVeiculos.Web
 {
@@ -26,6 +27,18 @@ namespace Itix.LocaVeiculos.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Sessão
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options =>
+            {
+                options.Cookie.HttpOnly = true;
+                options.Cookie.Name = ".Fiver.Session";
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+            });
+
             services.Configure<CookiePolicyOptions>(options =>
             {
                 options.CheckConsentNeeded = context => true;
@@ -40,6 +53,7 @@ namespace Itix.LocaVeiculos.Web
             services.AddTransient<IUsuarioRepositorio, UsuarioRepositorio>();
             services.AddTransient<IClienteRepositorio, ClienteRepositorio>();
             services.AddTransient<ICarroRepositorio, CarroRepositorio>();
+            services.AddTransient<ICarroLocadoRepositorio, CarroLocadoRepositorio>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -51,6 +65,20 @@ namespace Itix.LocaVeiculos.Web
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            //sessão
+            app.UseSession();
+            //app.Use(async (context, next) =>
+            //{
+            //    context.Session.SetString("GreetingMessage", "Hello Session State");
+            //    await next();
+            //});
+            //app.Run(async (context) =>
+            //{
+            //    var message = context.Session.GetString("GreetingMessage");
+            //    await context.Response.WriteAsync($"{message}");
+            //});
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

@@ -1,5 +1,5 @@
 export class Categoria {
-  id: number;
+  categoria_Id: number;
   nomeCategoria: string;
   precoBaseDiaria: number;
 }

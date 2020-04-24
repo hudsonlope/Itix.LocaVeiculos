@@ -42,7 +42,7 @@ export class CategoriaServico implements OnInit {
     return this.http.get<Categoria[]>(this._baseUrl + "api/categoria");
   }
 
-  public obterCategoria(categoriaId: number): Observable<Categoria> {
+  public obterCategoria(categoria_Id: number): Observable<Categoria> {
     return this.http.get<Categoria>(this._baseUrl + "api/categoria/obter");
   }
 }

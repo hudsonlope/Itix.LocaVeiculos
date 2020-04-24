@@ -8,7 +8,6 @@
 <div class="text-center" *ngIf="_usuarioAutenticado">
   <h1>CONTEUDO NORMAL DO SITE...</h1>
 </div>-->
-
 <!--<app-login></app-login>-->
 
 <section class="banner-area relative" id="home">
@@ -16,7 +15,7 @@
   <div class="container">
     <div class="row fullscreen d-flex align-items-center justify-content-center">
       <div class="banner-content col-lg-7 col-md-6 ">
-        <h6 class="text-white ">Olá {{usuario.nome + " " + usuario.sobrenome}},</h6>
+        <h6 class="text-white ">Olá {{usuario.usuario_Id + " " +usuario.nome + " " + usuario.sobrenome}},</h6>
         <h1 class="text-white text-uppercase">
           Seja bem vindo!
         </h1>
@@ -26,70 +25,79 @@
       </div>
       <div class="col-lg-5  col-md-6 header-right">
         <h4 class="text-white pb-30 text-center">Preencha os campos abaixo:</h4>
-        <form class="form" role="form" autocomplete="off">
+
+        <form class="form" role="form" id="formulario" autocomplete="off">
+
           <div class="form-group">
-            <div class="default-select" id="default-select">
-              <select>
-                <option value="" disabled selected hidden>Selecione a marca do carro</option>
-                <option value="1">BMW</option>
-                <option value="1">Farrari</option>
-                <option value="1">Toyota</option>
-              </select>
+            <select [(ngModel)]="carroLocado.carro_Id"
+                    id="carro_id"
+                    name="carro_id"
+                    class="form-control mb-2"
+                    [ngClass]="{
+                   'is-invalid':carro_id.invalid && (carro_id.dirty || carro_id.touched),
+                   'is-valid':carro_id.valid && (carro_id.dirty || carro_id.touched)
+                   }"
+                    #carro_id="ngModel"
+                    required>
+              <option *ngFor="let carro of carros" value="{{carro.carro_Id}}" [selected]="carro.carro_Id == 9999999">{{carro.marca + " " + carro.modelo + " " + carro.ano}}</option>
+            </select>
+            <div class="invalid-feedback mb-2" *ngIf="carro_id.invalid && (carro_id.dirty || carro_id.touched)">
+              <div *ngIf="carro_id.errors.required">
+                Selecione um veículo
+              </div>
             </div>
           </div>
           <div class="form-group">
-            <div class="default-select" id="default-select">
-              <select>
-                <option value="" disabled selected hidden>Selecione a modelo do carro</option>
-                <option value="1">Corolla 2015</option>
-                <option value="1">Virtus 2020</option>Escolha o carro
-              </select>
-            </div>
-          </div>
-          <div class="form-group row">
-            <div class="col-md-6 wrap-left">
-              <div class="input-group dates-wrap">
-                <input id="datepicker" class="dates form-control" placeholder="Quando?" type="text">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 wrap-right">
-              <div class="input-group dates-wrap">
-                <input id="datepicker" class="dates form-control" placeholder="Hora?" type="time">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><span class="lnr lnr-clock"></span></span>
-                </div>
+            <input id="dtPrimeiroDia"
+                   name="dtPrimeiroDia"
+                   class="dates form-control"
+                   placeholder="Quando?"
+                   type="datetime-local"
+                   [ngClass]="{
+                   'is-invalid':dtPrimeiroDia.invalid && (dtPrimeiroDia.dirty || dtPrimeiroDia.touched),
+                   'is-valid':dtPrimeiroDia.valid && (dtPrimeiroDia.dirty || dtPrimeiroDia.touched)
+                   }"
+                   [(ngModel)]="carroLocado.dtPrimeiroDia"
+                   #dtPrimeiroDia="ngModel"
+                   required>
+            <div class="invalid-feedback mb-2" *ngIf="dtPrimeiroDia.invalid && (dtPrimeiroDia.dirty || dtPrimeiroDia.touched)">
+              <div *ngIf="dtPrimeiroDia.errors.required">
+                Data do primeiro dia é de preenchimento obrigatório!
               </div>
             </div>
           </div>
-          <div class="form-group row">
-            <div class="col-md-6 wrap-left">
-              <div class="input-group dates-wrap">
-                <input id="datepicker2" class="dates form-control" placeholder="Até Quando?" type="text">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><span class="lnr lnr-calendar-full"></span></span>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 wrap-right">
-              <div class="input-group dates-wrap">
-                <input id="datepicker" class="dates form-control" placeholder="Hora?" type="time">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><span class="lnr lnr-clock"></span></span>
-                </div>
+
+          <div class="form-group">
+            <input id="dtUltimoDia"
+                   name="dtUltimoDia"
+                   class="dates form-control"
+                   placeholder="Até Quando?"
+                   type="datetime-local"
+                   [ngClass]="{
+                   'is-invalid':dtUltimoDia.invalid && (dtUltimoDia.dirty || dtUltimoDia.touched),
+                   'is-valid':dtUltimoDia.valid && (dtUltimoDia.dirty || dtUltimoDia.touched)
+                   }"
+                   [(ngModel)]="carroLocado.dtUltimoDia"
+                   #dtUltimoDia="ngModel"
+                   required>
+            <div class="invalid-feedback mb-2" *ngIf="dtUltimoDia.invalid && (dtUltimoDia.dirty || dtUltimoDia.touched)">
+              <div *ngIf="dtUltimoDia.errors.required">
+                Data do último dia é de preenchimento obrigatório!
               </div>
             </div>
           </div>
-          <!--<div class="from-group">
-            <input class="form-control txt-field" type="text" name="name" placeholder="Your name">
-            <input class="form-control txt-field" type="email" name="email" placeholder="Email address">
-            <input class="form-control txt-field" type="tel" name="phone" placeholder="Phone number">
-          </div>-->
           <div class="form-group row">
             <div class="col-md-12">
-              <button type="reset" class="btn-block text-center text-uppercase primary-btn">Confirmar Locação</button>
+              <button class="btn btn-default btn-lg btn-block text-center text-uppercase mb-2" type="submit" (click)="cadastrar()" [disabled]="ativar_spinner">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="ativar_spinner"></span>
+                Confirmar Locação
+              </button>
+              <div class="alert alert-danger text-center" *ngIf="mensagem">
+                {{ mensagem }}
+              </div>
+              <div class="alert alert-success text-center" *ngIf="cadastrado">
+                Carro Locado com sucesso!
+              </div>
             </div>
           </div>
         </form>

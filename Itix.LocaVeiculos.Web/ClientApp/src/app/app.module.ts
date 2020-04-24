@@ -20,6 +20,7 @@ import { CadastroUsuarioComponent } from './usuario/cadastro/cadastro.usuario.co
 import { CategoriaServico } from './servicos/categoria/categoria.servico';
 import { CarroServico } from './servicos/carro/carro.servico';
 import { CarroComponent } from './carro/carro.component';
+import { HomeServico } from './servicos/home/home.servico';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { CarroComponent } from './carro/carro.component';
 
     ])
   ],
-  providers: [UsuarioServico, CategoriaServico, CarroServico],
+  providers: [UsuarioServico, CategoriaServico, CarroServico, HomeServico],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

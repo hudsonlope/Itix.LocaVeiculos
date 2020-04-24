@@ -120,7 +120,7 @@
                    }"
                     #categoria_id="ngModel"
                     required>
-              <option *ngFor="let categoria of categorias" [value]="categoria.categoria_Id" [selected]="categoria.categoria_Id == 999999999">{{categoria.nomeCategoria}}</option>
+              <option *ngFor="let categoria of categorias" value="{{categoria.categoria_Id}}" [selected]="categoria.categoria_Id == 9999999">{{categoria.nomeCategoria}}</option>
             </select>
             <div class="invalid-feedback mb-2" *ngIf="categoria_id.invalid && (categoria_id.dirty || categoria_id.touched)">
               <div *ngIf="categoria_id.errors.required">

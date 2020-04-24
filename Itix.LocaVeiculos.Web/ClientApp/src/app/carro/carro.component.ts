@@ -30,9 +30,8 @@ export class CarroComponent implements OnInit {
   public obterCategorias() {
     this.carroServico.obterCategorias().subscribe(
       categoriaJson => {
-
         var defaultCategoria = new Categoria();
-        defaultCategoria.id = 999999999;
+        defaultCategoria.categoria_Id = 9999999;
         defaultCategoria.nomeCategoria = "Selecione uma categoria";
         defaultCategoria.precoBaseDiaria = 0;
 

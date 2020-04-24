@@ -13,11 +13,11 @@ namespace Itix.LocaVeiculos.Web.Controllers
     public class CarroController : Controller
     {
         private readonly ICarroRepositorio _db;
-        private readonly ICategoriaRepositorio _dbCategoria;
-        public CarroController(ICarroRepositorio carroRepositorio, ICategoriaRepositorio categoriaRepositorio)
+        //private readonly ICategoriaRepositorio _dbCategoria;
+        public CarroController(ICarroRepositorio carroRepositorio)
         {
             _db = carroRepositorio;
-            _dbCategoria = categoriaRepositorio;
+            //_dbCategoria = categoriaRepositorio;
         }
 
         [HttpGet]
@@ -52,18 +52,18 @@ namespace Itix.LocaVeiculos.Web.Controllers
             }
         }
 
-        [HttpGet]
-        public IActionResult ObterCategorias()
-        {
-            try
-            {
-                return Ok(_dbCategoria.GetList());
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.ToString());
-            }
-        }
+        //[HttpGet]
+        //public IActionResult ObterCategorias()
+        //{
+        //    try
+        //    {
+        //        return Ok(_dbCategoria.GetList());
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return BadRequest(ex.ToString());
+        //    }
+        //}
 
     }
 }
