@@ -4,9 +4,7 @@ using Itix.LocaVeiculos.Web.Helpers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Itix.LocaVeiculos.Web.Controllers
 {
@@ -41,8 +39,6 @@ namespace Itix.LocaVeiculos.Web.Controllers
         {
             try
             {
-                var sessionData = HttpContext.Session.GetString("usuario-autenticado");
-
                 var erros = Validacao.getValidationErros(carroLocado);
                 if (erros.Count() != 0)
                     return BadRequest(string.Join(". ", erros));
